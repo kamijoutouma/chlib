@@ -29,8 +29,15 @@ class Bot(chlib.conManager):
       print("PM: "+user+": "+pm)
       self.sendPM(user, pm) # echo
 
-    def recvkickingoff():
-      self.pmConnect()
+    def recvkickingoff(self, group):
+      self.disconnect()
+      self.connect()
+    
+    def recvtoofast(self, group):
+      print("the bot was disconnected for posting in the pms to fast reconnecting now")
+      self.disconnect()
+      self.connect()
+      
 
 if __name__ == "__main__": #no easy starting this time ;D
     bot = Bot(user = "user", password = "password", pm = True)
