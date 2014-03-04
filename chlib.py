@@ -552,7 +552,10 @@ class ConnectionManager:
 		if self.pm: self.addGroup()
 		while self.connected:
 			for group in self.cArray:
-				rbuf = group.rqueue.get(False, 5)
+				try:
+					rbuf = group.rqueue.get(False, 5)
+				except:
+					rbuf = b""
 				if rbuf: self.decode(group, rbuf)
 			time.sleep(0.01)
 		for group in self.cArray:
