@@ -139,7 +139,7 @@ class Group:
 		self.wthread = threading.Thread(target=self.send)
 		self.wthread.daemon = True
 		self.wthread.start()
-		self.rthread = threading.Thread(target=self.recv)
+		self.rthread = threading.Thread(target=self.receive)
 		self.rthread.daemon = True
 		self.rthread.start()
 
@@ -152,7 +152,7 @@ class Group:
 				time.sleep(0.1)
 			except queue.Empty: pass
 
-	def recv(self):
+	def receive(self):
 		'''receive from socket'''
 		while self.connected:
 			try:
