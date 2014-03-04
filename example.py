@@ -14,7 +14,7 @@ class Bot(chlib.ConnectionManager):
 			print("Connected to "+group.name)
 
 		def recvOK(self, group):
-			print("Connected to "+group.name)
+			print("Connected to PM")
 
 		def recvRemove(self, group):
 			print("Disconnected from "+group.name)
